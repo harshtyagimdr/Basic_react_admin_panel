@@ -6,9 +6,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
@@ -30,11 +27,7 @@ import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 const drawerWidth = 240;
-const [open, setOpen] = React.useState(true),
 
-const handleClick = () => {
-  setOpen(!open);
-};
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -54,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
- 
   menuButton: {
     marginRight: 36,
   },
@@ -198,10 +190,7 @@ function Navbar() {
                   {theme.direction === "rtl" ? (
                     <ChevronRightIcon />
                   ) : (
-                    <>
-                  
                     <ChevronLeftIcon />
-                    </>
                   )}
                 </IconButton>
               </div>
@@ -216,20 +205,6 @@ function Navbar() {
                   </ListItem>
                 </Link>
                 <Divider />
-                <ListItem>
-                <ListItemText primary="Inbox" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-            <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Starred" />
-          </ListItem>
-        </List>
-      </Collapse>
                 <ListItem>
                   <ListItemIcon>
                     <MenuBookIcon />
